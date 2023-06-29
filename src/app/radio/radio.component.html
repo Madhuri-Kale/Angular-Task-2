@@ -1,0 +1,51 @@
+<div class="container bg-secondary text-white mt-4">
+    <div class="row">
+        <div class="col-12 py-5">
+            <form #myForm="ngForm" (ngSubmit)="onSubmit()">
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                        <label for="fName">First name</label>
+                        <input type="text" class="form-control" id="fName" name="firstName" ngModel required
+                            #fn="ngModel">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="lName">Last name</label>
+                        <input type="text" class="form-control" id="lName" name="lastName" ngModel required
+                            #ln="ngModel">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-check-label" for="contact">
+                            How should we contact you?
+                        </label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="contact" id="contact1"
+                            value="Phone" ngModel required #cont="ngModel">
+                        <label class="form-check-label" for="contact">
+                            Phone
+                        </label>
+                    </div>  
+                    <div class="form-check"> 
+                        <input class="form-check-input" type="radio" name="contact" id="contact2"
+                            value="Email" ngModel required #cont="ngModel">
+                        <label class="form-check-label" for="contact">
+                            Email
+                        </label>
+                    </div>    
+                    </div>
+                    <div class="col-md-6 mb-3" *ngIf="cont.value == 'Phone'">
+                        <label for="phone">Phone Number</label>
+                        <input type="text" placeholder="Phone Number" class="form-control" id="phone" name="phoneNo"
+                            ngModel required #phn="ngModel">
+                    </div>
+                    <div class="col-md-6 mb-3" *ngIf="cont.value == 'Email'">
+                        <label for="email">Email Address</label>
+                        <input type="text" placeholder="Email Address" class="form-control" id="email" name="emailId"
+                            ngModel required #email="ngModel">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="container bg-secondary text-white mt-4">
+    <div class="row">
+        <div class="col-12 py-5">
+            <form #myForm="ngForm" (ngSubmit)="onSubmit()">
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                        <label for="fName">First name</label>
+                        <input type="text" class="form-control" id="fName" name="firstName" ngModel required #fn="ngModel">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="lName">Last name</label>
+                        <input type="text" class="form-control" id="lName" name="lastName" ngModel required #ln="ngModel">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                        <label for="contact">How should we contact you?</label><br>
+                        <select class="form-control" name="contact" id="contact" ngModel required #cont="ngModel">
+                            <option value="select">Choose option</option>
+                            <option value="phone">Phone</option>
+                            <option value="email">Email</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 mb-3" *ngIf="cont.value == 'phone'">
+                        <label for="phone">Phone Number</label>
+                        <input type="text" laceholder="Phone Number" class="form-control" id="phone" name="phoneNo" ngModel required #phn="ngModel">
+                    </div>
+                    <div class="col-md-6 mb-3" *ngIf="cont.value == 'email'">
+                        <label for="email">Email Address</label>
+                        <input type="text" placeholder="Email Address" class="form-control" id="email" name="emailId" ngModel required #email="ngModel">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
